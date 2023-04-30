@@ -40,26 +40,7 @@ Get your OpenAI API key from: [https://platform.openai.com/account/api-keys](htt
         docker pull significantgravitas/auto-gpt
 
 3. Create a folder for Auto-GPT
-4. In the folder, create a file called `docker-compose.yml` with the following contents:
-
-        :::yaml
-        version: "3.9"
-        services:
-          auto-gpt:
-            image: significantgravitas/auto-gpt
-            depends_on:
-              - redis
-            env_file:
-              - .env
-            environment:
-              MEMORY_BACKEND: ${MEMORY_BACKEND:-redis}
-              REDIS_HOST: ${REDIS_HOST:-redis}
-            volumes:
-              - ./:/app
-            profiles: ["exclude-from-up"]
-          redis:
-            image: "redis/redis-stack-server:latest"
-
+4. In the folder, make sure that you have a file called `docker-compose.yml`
 5. Create the necessary [configuration](#configuration) files. If needed, you can find
     templates in the [repository].
 6. Continue to [Run with Docker](#run-with-docker)
